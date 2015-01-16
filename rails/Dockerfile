@@ -10,13 +10,13 @@ RUN yum install -y ImageMagick ImageMagick-devel
 RUN yum install -y install libxml2 libxml2-devel libxslt libxslt-devel
 
 # install MySQL
-RUN wget http://dev.mysql.com/get/Downloads/MySQL-5.6/MySQL-5.6.21-1.el6.x86_64.rpm-bundle.tar
-RUN tar xvf MySQL-5.6.21-1.el6.x86_64.rpm-bundle.tar
-RUN yum localinstall -y MySQL-shared-compat-5.6.21-1.el6.x86_64.rpm
-RUN yum localinstall -y MySQL-shared-5.6.21-1.el6.x86_64.rpm
-RUN yum localinstall -y MySQL-server-5.6.21-1.el6.x86_64.rpm
-RUN yum localinstall -y MySQL-client-5.6.21-1.el6.x86_64.rpm
-RUN yum localinstall -y MySQL-devel-5.6.21-1.el6.x86_64.rpm
+RUN wget http://dev.mysql.com/get/Downloads/MySQL-5.5/MySQL-5.5.39-2.el6.x86_64.rpm-bundle.tar
+RUN tar xvf MySQL-5.5.39-2.el6.x86_64.rpm-bundle.tar
+RUN yum localinstall -y MySQL-shared-compat-5.5.39-2.el6.x86_64.rpm
+RUN yum localinstall -y MySQL-shared-5.5.39-2.el6.x86_64.rpm
+RUN yum localinstall -y MySQL-server-5.5.39-2.el6.x86_64.rpm
+RUN yum localinstall -y MySQL-client-5.5.39-2.el6.x86_64.rpm
+RUN yum localinstall -y MySQL-devel-5.5.39-2.el6.x86_64.rpm
 
 # create user
 RUN useradd -m -s /bin/bash oomatomo
@@ -57,7 +57,7 @@ RUN /etc/init.d/sshd start
 RUN /etc/init.d/sshd stop
 
 # start MySQL
-RUN /etc/init.d/mysqld start
+RUN /etc/init.d/mysql start
 
 EXPOSE 22 3000
 
