@@ -48,16 +48,13 @@ RUN su oomatomo -c "/home/oomatomo/.nodebrew/current/bin/nodebrew use stable"
 RUN su oomatomo -c "/home/oomatomo/.nodebrew/current/bin/npm install -g coffee-script"
 
 # setup SSH
-RUN sed -ri 's/PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+RUN sed -ri 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 RUN sed -ri 's/#UsePAM no/UsePAM no/g' /etc/ssh/sshd_config
 
 # Init SSHD
 RUN /etc/init.d/sshd start
 RUN /etc/init.d/sshd stop
-
-# start MySQL
-RUN /etc/init.d/mysql start
 
 EXPOSE 22 3000
 
