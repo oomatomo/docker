@@ -6,3 +6,7 @@ redis:
   build: ./redis
   ports:
     - "6379:6379"
+dynamodb:
+  build: ./dynamodb
+  ports:
+    - "8000:8000"
