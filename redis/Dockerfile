@@ -17,7 +17,7 @@ RUN cd /tmp && \
       cp -f *.conf /etc/redis
 
 # change bind
-RUN sed s/bind\ 127.0.0.1/bind\ 0.0.0.0/ -i /etc/redis/redis.conf
+RUN sed -e "s/# bind 127.0.0.1/bind 0.0.0.0/" -i /etc/redis/redis.conf
 
 EXPOSE 6379
 CMD ["redis-server", "/etc/redis/redis.conf"]
